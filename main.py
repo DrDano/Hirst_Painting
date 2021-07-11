@@ -9,6 +9,7 @@ ted.pensize(10)
 ted.shape("turtle")
 ted.color("AntiqueWhite")
 ted.pencolor("black")
+ted.speed(30)
 screen = Screen()
 screen.colormode(255)
 screen.title("Hirst Painting")
@@ -18,9 +19,11 @@ rgb_colors = [(223, 227, 231), (233, 238, 236), (10, 25, 39), (238, 232, 223), (
 
 ted.penup()
 ted.setposition(-335, 320)
+y_coordinate = 320
+
 
 def dot_printer():
-    for _ in range(0, 19):
+    for _ in range(0, 18):
         ted.pendown()
         ted.pencolor(random.choice(rgb_colors))
         ted.forward(0.50)
@@ -31,16 +34,16 @@ def dot_printer():
 
 
 def set_pos(y_cord, num_lines):
-    y_cord_dif = y_cord / num_lines
-    new_y_pos = (y_cord - y_cord_dif)
-    y_cord -= y_cord_dif
-    return new_y_pos
+    y_cord_dif = 320 / num_lines
+    new_y_pos = y_cord - y_cord_dif
+    return new_y_pos, y_cord_dif
 
 
-for _ in range(0, 10):
+for _ in range(0, 18):
     dot_printer()
     ted.penup()
-    ted.setposition(-335, set_pos(y_cord=320, num_lines=20))
+    ted.setposition(-335, set_pos(y_cord=y_coordinate, num_lines=10)[0])
+    y_coordinate -= set_pos(y_cord=y_coordinate, num_lines=10)[1]
 
 
 # for color in color_p:
