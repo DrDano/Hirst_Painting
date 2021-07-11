@@ -5,7 +5,7 @@ from turtle import Turtle, Screen
 
 # color_p = colorgram.extract('Hirst Spot Painting.jpeg', 15)
 ted = Turtle()
-ted.pensize(10)
+ted.pensize(15)
 ted.shape("turtle")
 ted.color("AntiqueWhite")
 ted.pencolor("black")
@@ -39,7 +39,7 @@ def set_pos(y_cord, num_lines):
     return new_y_pos, y_cord_dif
 
 
-for _ in range(0, 18):
+for _ in range(0, 20):
     dot_printer()
     ted.penup()
     ted.setposition(-335, set_pos(y_cord=y_coordinate, num_lines=10)[0])
